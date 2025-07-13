@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, User, LogOut, Package, Shield } from 'lucide-react';
@@ -78,7 +79,7 @@ const Navbar = () => {
                 {/* User menu */}
                 <div className="flex items-center space-x-3">
                   <div className="flex flex-col text-right">
-                    <span className="text-sm font-medium text-gray-900">{user?.name}</span>
+                    <span className="text-sm font-medium text-gray-900">{user?.email}</span>
                     <span className="text-xs text-gray-500 capitalize">{user?.role}</span>
                   </div>
                   <Button
