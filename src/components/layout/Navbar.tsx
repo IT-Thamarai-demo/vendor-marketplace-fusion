@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, User, LogOut, Package, Shield } from 'lucide-react';
@@ -23,7 +22,7 @@ const Navbar = () => {
       case 'vendor':
         return '/vendor';
       default:
-        return '/products';
+        return '/dashboard';
     }
   };
 

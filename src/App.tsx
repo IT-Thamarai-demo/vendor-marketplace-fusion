@@ -12,6 +12,9 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import ProductList from "./components/products/ProductList";
 import CartPage from "./components/cart/CartPage";
+import UserDashboard from "./pages/UserDashboard";
+import VendorDashboard from "./pages/VendorDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +33,9 @@ const App = () => (
                 <Route path="/register" element={<Register />} />
                 <Route path="/products" element={<ProductList />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/dashboard" element={<UserDashboard />} />
+                <Route path="/vendor" element={<VendorDashboard />} />
+                <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
