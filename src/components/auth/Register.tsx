@@ -12,7 +12,6 @@ import { Loader2 } from 'lucide-react';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
     role: ''
@@ -36,7 +35,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      await register(formData.name, formData.email, formData.password, formData.role);
+      await register(formData.email, formData.password, formData.role);
       toast({
         title: "Success",
         description: "Account created successfully!",
@@ -68,17 +67,6 @@ const Register = () => {
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your full name"
-                value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
-                required
-              />
-            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
