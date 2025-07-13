@@ -40,10 +40,20 @@ const Register = () => {
     return;
   }
 
-    setIsLoading(true);
+  setLoading(true);
 
-    try {
-      await register(formData.name, formData.email, formData.password, formData.role);
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
       toast({
         title: "Registration Successful",
         description: "Please log in to continue.",
@@ -71,21 +81,10 @@ const Register = () => {
           <CardTitle className="text-2xl font-bold">Create Account</CardTitle>
           <CardDescription>Join MarketPlace today</CardDescription>
         </CardHeader>
-        <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your full name"
-                value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Email Address</Label>
               <Input
                 id="email"
                 type="email"
